@@ -434,8 +434,8 @@ html.os-html > .os-host > .os-scrollbar {
     cursor: default;
 }
 .os-host-resize-disabled.os-host-scrollbar-horizontal-hidden > .os-scrollbar-vertical {
-    top: 0;
-    bottom: 0;
+    top: 20px;
+    bottom: 20px;
     right:26px;
 }
 .os-host-resize-disabled.os-host-scrollbar-vertical-hidden > .os-scrollbar-horizontal,
@@ -534,7 +534,8 @@ THEMES:
 }
 .os-theme-dark > .os-scrollbar > .os-scrollbar-track,
 .os-theme-light > .os-scrollbar > .os-scrollbar-track {
-    background: transparent;
+    background: #eee;
+    width:4px;
 }
 .os-theme-dark > .os-scrollbar-horizontal > .os-scrollbar-track > .os-scrollbar-handle,
 .os-theme-light > .os-scrollbar-horizontal > .os-scrollbar-track > .os-scrollbar-handle {
@@ -556,7 +557,9 @@ THEMES:
     border-radius: 10px;
 }
 .os-theme-dark > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle {
-    background: rgba(0, 0, 0, 0.4);
+    background: #f3488c;
+    width:8px;
+    margin-left:-2px;
 }
 .os-theme-light > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle {
     background: rgba(255, 255, 255, 0.4);

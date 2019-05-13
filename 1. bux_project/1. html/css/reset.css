@@ -1,53 +1,67 @@
 @charset "utf-8";
 @font-face{
-	font-family:"NotoSansCJKkr";
-	src:url('../font/NotoSansKR-Light.eot');
-	src:url('../font/NotoSansKR-Light.eot?#iefix') format('embedded-opentype'),
+	font-family:"NotoSans";
+	src:url('../font/NotoSansKR-Light.otf');
+	src:url('../font/NotoSansKR-Light.otf') format('embedded-opentype'),
 	url('../font/NotoSansKR-Light.woff') format('woff');
 	src:local(※), url('../font/NotoSansKR-Light.woff') format('woff');
+	font-weight: 300;
 }
 
 @font-face{
-	font-family:"NotoSans-Bold";
-	src:url('../font/NotoSansKR-Bold.eot');
-	src:url('../font/NotoSansKR-Bold.eot?#iefix') format('embedded-opentype'),
-	url('../font/NotoSanKRs-Bold.woff') format('woff');
-	src:local(※), url('../font/NotoSans-Bold.woff') format('woff');
-}
-
-@font-face {
-	font-family: 'Roboto';
-	src: url(Roboto-Light.eot) format('embedded-opentype'),
-	     url(Roboto-Light.woff) format('woff'),
-	     url(Roboto-Light.otf) format('truetype');
-	font-weight: 300;
-}
-@font-face {
-	font-family: 'Roboto';
-	src: url(Roboto-Regular.eot) format('embedded-opentype'),
-	     url(Roboto-Regular.woff) format('woff'),
-	     url(Roboto-Regular.otf) format('truetype');
+	font-family:"NotoSans";
+	src:url('../font/NotoSansKR-Regular.otf');
+	src:url('../font/NotoSansKR-Regular.eot') format('embedded-opentype'),
+		url('../font/NotoSansKR-Regular.ttf') format('truetype'),
+		url('../font/NotoSansKR-Regular.woff') format('woff');
+	src:local(※), url('../font/NotoSansKR-Regular.woff') format('woff');
 	font-weight: 400;
 }
-@font-face {
-	font-family: 'Roboto';
-	src: url(Roboto-Medium.eot) format('embedded-opentype');
-	font-weight: 500;
-}
 
-@font-face {
-	font-family: 'Roboto';
-	src: url(Roboto-Bold.eot) format('embedded-opentype'),
-	     url(Roboto-Bold.woff) format('woff'),
-	     url(Roboto-Bold.otf) format('truetype');
+@font-face{
+	font-family:"NotoSans";
+	src:url('../font/NotoSansKR-Bold.otf');
+	src:url('../font/NotoSansKR-Bold.otf') format('embedded-opentype'),
+		url('../font/NotoSanKRs-Bold.woff') format('woff');
+	src:local(※), url('../font/NotoSans-Bold.woff') format('woff');
 	font-weight: 600;
 }
 
 
+/* Roboto */
+@font-face {
+	font-family: 'Roboto';
+	src: url(../font/Roboto-Light.eot) format('embedded-opentype'),
+	     url(../font/Roboto-Light.woff) format('woff'),
+	     url(../font/Roboto-Light.otf) format('truetype');
+	font-weight: 300;
+}
+@font-face {
+	font-family: 'Roboto';
+	src: url(../font/Roboto-Regular.eot) format('embedded-opentype'),
+	     url(../font/Roboto-Regular.woff) format('woff'),
+	     url(../font/Roboto-Regular.otf) format('truetype');
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'Roboto';
+	src: url(../font/Roboto-Medium.eot) format('embedded-opentype'),
+	     url(../font/Roboto-Medium.woff) format('woff'),
+	     url(../font/Roboto-Medium.otf) format('truetype');
+	font-weight: 500;
+}
+@font-face {
+	font-family: 'Roboto';
+	src: url(../font/Roboto-Bold.eot) format('embedded-opentype'),
+	     url(../font/Roboto-Bold.woff) format('woff'),
+	     url(../font/Roboto-Bold.otf) format('truetype');
+	font-weight: 600;
+}
+
 /* base */
 body, html {height:100%;}
 * {-webkit-text-size-adjust:none;}
-body {font-size:1em; font-family:'Roboto', 'NotoSansCJKkr', '맑은 고딕', 'Malgun Gothic', Dotum, sans-serif; color:#2d2d2d; letter-spacing:0.25px;}
+body {font-size:1em; font-family:'Roboto', 'NotoSans', '맑은 고딕', 'Malgun Gothic', Dotum, sans-serif; color:#2d2d2d; letter-spacing:0.25px;}
 body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form, fieldset, legend, input, table, tr, th, td {margin:0; padding:0; letter-spacing:0.25px;}
 h1, h2, h3, h4, h5, h6 {font-weight:normal; letter-spacing:0.25px;}
 ul, ol, li {list-style:none;}
@@ -62,7 +76,7 @@ address,caption,cite,code,dfn,em,strong,th,var {
 }
 
 /* cross */
-* html input {margin:-1px 0; font-family:'Roboto', 'NotoSansCJKkr', '맑은 고딕', 'Malgun Gothic', Dotum, sans-serif;} 
+* html input {margin:-1px 0; font-family:'Roboto', 'NotoSans', '맑은 고딕', 'Malgun Gothic', Dotum, sans-serif;} 
 *:first-child+html input {margin:-1px 0}
 input, textarea {} 
 input.checkbox {width:13px; height:13px; vertical-align:top;}
@@ -76,7 +90,7 @@ input[type="tel"]{
 	width:100%;
 	border:1px solid #dde2e4;
 	font-size:1em;
-	font-family:'Roboto', 'NotoSansCJKkr', '맑은 고딕', 'Malgun Gothic', Dotum, sans-serif;
+	font-family:'Roboto', 'NotoSans', '맑은 고딕', 'Malgun Gothic', Dotum, sans-serif;
 	box-sizing:border-box;
 	outline-style:none; 
 	-webkit-appearance:none;
@@ -90,7 +104,7 @@ select {height:24px; line-height:24px;}
 button{
 	border:0;
 	background-color: transparent;
-	font-family:'Roboto', 'NotoSansCJKkr', '맑은 고딕', 'Malgun Gothic', Dotum, sans-serif;
+	font-family:'Roboto', 'NotoSans', '맑은 고딕', 'Malgun Gothic', Dotum, sans-serif;
 }
 button > * {
 	vertical-align: middle;
@@ -106,7 +120,7 @@ textarea{
 	font-size:1em; 
 	border:1px solid #dde2e4; 
 	padding:0 5px;
-	font-family: 'Roboto', 'NotoSansCJKkr', '맑은 고딕', 'Malgun Gothic', Dotum, sans-serif;
+	font-family: 'Roboto', 'NotoSans', '맑은 고딕', 'Malgun Gothic', Dotum, sans-serif;
 	line-height:20px;
 	resize:none;
 	overflow:auto;

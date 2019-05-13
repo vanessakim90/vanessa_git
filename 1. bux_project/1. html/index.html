@@ -8,7 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="css/test.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
 	<link rel="stylesheet" type="text/css" href="css/ico_font.css" />
 
 	<!-- Plugin CSS -->
@@ -30,6 +30,14 @@
 					clickScrolling : true
 				}
 			});
+			OverlayScrollbars(document.querySelectorAll('.content'), {
+				className       : "os-theme-dark",
+				resize          : "none",
+				sizeAutoCapable : true,
+				scrollbars : {
+					clickScrolling : true
+				}
+			});
 			var verticalInfo = document.querySelector('.user_info');
 			var verticalLogo = document.querySelector('.bux_logo_vertical');
 			var HorizonLogo = document.querySelector('.bux_logo_horizon');
@@ -45,131 +53,159 @@
 			$('.container').addClass('part');
 			$('.container').removeClass('full');
 
-				var verticalInfo = document.querySelector('.user_info');
-				var buxLogo = document.querySelector('.nav_info');
-				var verticalLogo = document.querySelector('.bux_logo_vertical');
-				var HorizonLogo = document.querySelector('.bux_logo_horizon');
+			var verticalInfo = document.querySelector('.user_info');
+			var buxLogo = document.querySelector('.nav_info');
+			var verticalLogo = document.querySelector('.bux_logo_vertical');
+			var HorizonLogo = document.querySelector('.bux_logo_horizon');
 
-				if(buxLogo.classList.contains('active') == true ){
-					verticalInfo.classList.remove('static');
-					verticalLogo.classList.remove('static');
-					HorizonLogo.classList.remove('hide');
-					buxLogo.classList.remove('active');
-					buxLogo.classList.add('inactive');
+			if(buxLogo.classList.contains('active') == true ){
+				verticalInfo.classList.remove('static');
+				verticalLogo.classList.remove('static');
+				HorizonLogo.classList.remove('hide');
+				buxLogo.classList.remove('active');
+				buxLogo.classList.add('inactive');
+
+				setTimeout(function(){
+					$('.nav_user_info').animate({
+						height: '252px',
+						opacity: 1,
+						margin: 0,
+					}, 400)
+					$(".nav_user_info .nav_lin").delay(250).animate({
+						opacity: 1,
+						margin: 0,
+					}, 400)
+					
+					setTimeout(function(){
+						$("nav h3").animate({
+							opacity: 1,
+							margin: 0,
+						}, 400)
+
+						var bookLength = $('.nav_bookmark li').length;
+						var bookHeight = bookLength * 50 + 100;
+
+						$('.nav_bookmark ul li').delay(100).each(function(index){
+							$(this).delay(index*100)
+									.animate({
+										'opacity': '1',
+										'margin-top': '0',
+									}, 250)
+						});
+
+						$(".btn_nav_add_bookmark").delay(100).animate({
+							opacity: 1,
+							'margin-top': 0,
+						}, 400)
+						
+						$(".nav_lin").delay(400).animate({
+							opacity: 1,
+							margin: 0,
+						}, 500)
+
+					}, 100);
 
 					setTimeout(function(){
-						$('.nav_user_info').animate({
-							height: '252px',
-							opacity: 1,
-							margin: 0,
-						}, 400)
-						$(".nav_user_info .nav_lin").delay(250).animate({
-							opacity: 1,
-							margin: 0,
-						}, 400)
-						
-						setTimeout(function(){
-							$("nav h3").animate({
-								opacity: 1,
-								margin: 0,
-							}, 400)
+						$(".nav_list > li").each(function(index){
+							$(this).delay(index*100)
+									.animate({
+										'opacity': '1',
+										'margin-top': '0',
+									}, 300)
+						});
+					}, 300);
+				}, 150);
+			}else{
+				$('nav').css('width','60px');
+				$('.container').removeClass('part');
+				$('.container').addClass('full');
+				verticalInfo.classList.add('static');
+				buxLogo.classList.remove('inactive');
+				buxLogo.classList.add('active');
 
-							var bookLength = $('.nav_bookmark li').length;
-							var bookHeight = bookLength * 50 + 100;
-
-							$('.nav_bookmark ul li').delay(100).each(function(index){
-								$(this).delay(index*100)
-										.animate({
-											'opacity': '1',
-											'margin-top': '0',
-										}, 250)
-							});
-
-							$(".btn_nav_add_bookmark").delay(100).animate({
-								opacity: 1,
-								'margin-top': 0,
-							}, 400)
-							
-							$(".nav_lin").delay(400).animate({
-								opacity: 1,
-								margin: 0,
-							}, 500)
-
-						}, 100);
-
-						setTimeout(function(){
-							$(".nav_list > li").each(function(index){
-								$(this).delay(index*100)
-										.animate({
-											'opacity': '1',
-											'margin-top': '0',
-										}, 300)
-							});
-						}, 300);
-					}, 150);
-				}else{
-					// setTimeout(function(){
-					// 	$('.nav_scroll').css('display','none');
-					// }, 550);
-					$('nav').css('width','60px');
-					$('.container').removeClass('part');
-					$('.container').addClass('full');
-					verticalInfo.classList.add('static');
-					buxLogo.classList.remove('inactive');
-					buxLogo.classList.add('active');
-
-					$('.nav_user_info').animate({
-							height: '0',
+				$('.nav_user_info').animate({
+						height: '0',
+						opacity: 0,
+						margin: '-50px',
+					}, 200)
+					$(".nav_user_info .nav_lin").delay(150).animate({
+						opacity: 0,
+					}, 300)
+					
+					setTimeout(function(){
+						$("nav h3").animate({
 							opacity: 0,
-							margin: '-50px',
+							'margin-top': '-30px',
 						}, 200)
-						$(".nav_user_info .nav_lin").delay(150).animate({
+
+						var bookLength = $('.nav_bookmark li').length;
+						var bookHeight = bookLength * 50 + 100;
+
+						$(".nav_lin").animate({
 							opacity: 0,
-						}, 300)
+						}, 200)
+
+						$('.nav_bookmark ul li').each(function(index){
+							$(this).delay(index*20)
+									.animate({
+										'opacity': '0',
+										'margin-top': '-30px',
+									}, 200)
+						});
+
+						$(".btn_nav_add_bookmark").animate({
+							opacity: 0,
+							'margin-top': '-30px',
+						}, 200)
 						
-						setTimeout(function(){
-							$("nav h3").animate({
-								opacity: 0,
-								'margin-top': '-30px',
-							}, 200)
-
-							var bookLength = $('.nav_bookmark li').length;
-							var bookHeight = bookLength * 50 + 100;
-
-							$(".nav_lin").animate({
-								opacity: 0,
-							}, 200)
-
-							$('.nav_bookmark ul li').each(function(index){
-								$(this).delay(index*20)
-										.animate({
-											'opacity': '0',
-											'margin-top': '-30px',
-										}, 200)
-							});
-
-							$(".btn_nav_add_bookmark").animate({
-								opacity: 0,
-								'margin-top': '-30px',
-							}, 200)
-							
-							$(".nav_list > li").each(function(index){
-								$(this).animate({
-									'opacity': '0',
-									'margin-top': '-20px',
-								}, 150)
-							});
-						}, 100);		
-				}
+						$(".nav_list > li").each(function(index){
+							$(this).animate({
+								'opacity': '0',
+								'margin-top': '-20px',
+							}, 150)
+						});
+					}, 100);		
+			}
 		};
+		
+		// second depth show, hide accordian effect
+		$(document).ready(function(){
+			
+			$('.nav_list > li > a').click(function(){
+				
+				var subLength = $(this).siblings('.nav_sub_depth').children('ul').children('li').length;
+				var subHeight = subLength*50;
+
+				if($(this).parent().hasClass('active') == true ){
+					
+					$(this).parent().removeClass('active');
+					$(this).siblings('.nav_sub_depth').animate({height: 0, opacity: 0,}, 300);
+					$(this).children('i').removeClass('icon-ic_leftmenu_arrow_down').addClass('icon-ic_leftmenu_arrow_up');
+				
+				}else{
+					
+					if( $(this).parent().siblings().hasClass('active') == true ){
+						
+						$('.nav_list > li').removeClass('active');
+						$('.nav_sub_depth').animate({height: 0, opacity: 0}, 300);
+						$('.nav_list > li > a').children('i').removeClass('icon-ic_leftmenu_arrow_down').addClass('icon-ic_leftmenu_arrow_up');
+					}
+
+					$(this).siblings('.nav_sub_depth').animate({height: subHeight, opacity: 1,}, 400);
+					$(this).parent().addClass('active');
+					$(this).children('i').removeClass('icon-ic_leftmenu_arrow_up').addClass('icon-ic_leftmenu_arrow_down');
+
+				}
+			});
+		});
 	</script>
 </head>
 <body>
 <div class="wrap">	
 	<section class="wrap_layout">
 		<nav>
-			<div class="nav_info active" onclick="navActive()">
-				<div class="ico_menu">
+			<div class="nav_info active">
+				<div class="ico_menu"  onclick="navActive()">
 					<span class="nav_ico">
 						<span class="lin_top"></span>
 						<span class="lin_middle"></span>
@@ -207,7 +243,7 @@
 									<span class="book_sub">SubMenu 1</span>
 								</a>
 							</li>
-							<li class="active">
+							<li>
 								<a href="#">
 									<i class="icon-ic_leftmenu_star_on"></i>
 									<span>Main Menu6</span>
@@ -232,7 +268,7 @@
 						<li>
 							<a href="#">Dashboard</a>
 						</li>
-						<li class="active">
+						<li>
 							<a href="#">
 								Data Visualization
 								<i class="icon-ic_leftmenu_arrow_up nav_down"></i>
@@ -251,46 +287,137 @@
 								Data Engineering
 								<i class="icon-ic_leftmenu_arrow_up nav_down"></i>
 							</a>
+							<div class="nav_sub_depth">
+								<ul>
+									<li><a href="#">Dashboard Management</a></li>
+									<li><a href="#">Panel Management</a></li>
+								</ul>
+							</div>
 						</li>
 						<li>
 							<a href="#">
 								Data Hub
 								<i class="icon-ic_leftmenu_arrow_up nav_down"></i>
 							</a>
+							<div class="nav_sub_depth">
+								<ul>
+									<li><a href="#">Dashboard Management</a></li>
+									<li><a href="#">Panel Management</a></li>
+								</ul>
+							</div>
 						</li>
 						<li>
 							<a href="#">
 								<i class="icon-ic_leftmenu_arrow_up nav_down"></i>
 								Data Analytics
 							</a>
+							<div class="nav_sub_depth">
+								<ul>
+									<li><a href="#">Dashboard Management</a></li>
+									<li><a href="#">Panel Management</a></li>
+								</ul>
+							</div>
 						</li>
 						<li>
 							<a href="#">
 								<i class="icon-ic_leftmenu_arrow_up nav_down"></i>
 								Data Governance
 							</a>
+							<div class="nav_sub_depth">
+								<ul>
+									<li><a href="#">Dashboard Management</a></li>
+									<li><a href="#">Panel Management</a></li>
+								</ul>
+							</div>
 						</li>
 						<li>
 							<a href="#">
 								<i class="icon-ic_leftmenu_arrow_up nav_down"></i>
 								Gateway
 							</a>
+							<div class="nav_sub_depth">
+								<ul>
+									<li><a href="#">Dashboard Management</a></li>
+									<li><a href="#">Panel Management</a></li>
+								</ul>
+							</div>
 						</li>
 						<li>
 							<a href="#">
 								<i class="icon-ic_leftmenu_arrow_up nav_down"></i>
 								Solution Commons
 							</a>
+							<div class="nav_sub_depth">
+								<ul>
+									<li><a href="#">Dashboard Management</a></li>
+									<li><a href="#">Panel Management</a></li>
+								</ul>
+							</div>
 						</li>
 					</ul>
 				</div>
 			</div>
-			
 		</nav>
+
+		<!-- Content -->
 		<div class="container">
-			<div class="content"></div>
+			<div class="content">
+				<div class="content_title">
+					<h2>Dashboard</h2>
+					<p>You can see summarized information from the dashboard menu.</p>
+				</div>
+				<section class="dash_section">
+					<div class="dash_left">
+						<div class="sub_row">
+							<div class="sub_box left_01">
+								<h3>Sub Text Area</h3>
+								<img src="img/img_1.png" alt="Basic Chart Image">
+							</div>
+							<div class="sub_box left_02">
+								<h3>Sub Text Area</h3>
+								<img src="img/img_2.png" alt="Basic Chart Image">
+							</div>
+						</div>
+						<div class="sub_box_02 left_03">
+							<h3>Sub Text Area</h3>
+							<img src="img/img_5.png" alt="Basic Chart Image">
+						</div>
+					</div>
+					<div class="dash_center">
+						<div class="sub_box_02 center_01">
+							<h3>Sub Text Area</h3>
+							<img src="img/img_3.png" alt="Basic Chart Image">
+						</div>
+						<div class="sub_row">
+							<div class="sub_box center_02">
+								<h3>Sub Text Area</h3>
+								<img src="img/img_6.png" alt="Basic Chart Image">
+							</div>
+							<div class="sub_box center_03">
+								<h3>Sub Text Area</h3>
+								<img src="img/img_7.png" alt="Basic Chart Image">
+							</div>
+						</div>
+						<div class="sub_box_02 center_04">
+							<img src="img/img_8.png" alt="Basic Chart Image">
+						</div>
+					</div>
+					<div class="dash_right">
+							<div class="sub_box_02 right_01">
+								<h3>Sub Text Area</h3>
+								<img src="img/img_4.png" alt="Basic Chart Image">
+							</div>
+							<div class="sub_box_02 right_02">
+								<h3>Sub Text Area</h3>
+								<img src="img/img_1.png" alt="Basic Chart Image">
+							</div>
+					</div>
+				</section>
+			</div>
 		</div>
+
 	</section>
+	
 	<!-- background image group box -->
 	<!-- up box -->
 	<div class="bg_box">
@@ -325,33 +452,3 @@
 	</div>
 </div>
 </body>
-
-
-<script>
-// second depth show, hide accordian effect
-
-$('.nav_list > li > a').click(function(){
-
-	$(this).parent().siblings().removeClass('active');
-	$(this).parent().addClass('active');
-
-	var subLength = $('.nav_sub_depth li').length;
-	var subHeight = subLength*50;
-
-	if($(this).parent().hasClass('active') == true ){
-
-		$(this).siblings('.nav_sub_depth').slideDown(400, function(){
-			$(this).animate({
-				height: subHeight,
-				opacity: 1,
-			}, 500);
-		});
-
-		$(this).children('i').removeClass('icon-ic_leftmenu_arrow_up').addClass('icon-ic_leftmenu_arrow_down');
-
-	}else{
-		alert();
-	}
-	
-});
-</script>
