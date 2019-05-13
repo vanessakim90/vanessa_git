@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/test.css" />
+	<link rel="stylesheet" type="text/css" href="css/ico_font.css" />
+
+	<!-- Plugin CSS -->
+	<link rel="stylesheet" type="text/css" href="css/OverlayScrollbars.css" />
+
+	<!-- Plugin JS -->
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/OverlayScrollbars.js"></script>
+
+	<!-- custom JS -->
+	<script type="text/javascript">
+		// Run scrolling plugin command
+		document.addEventListener("DOMContentLoaded", function() {
+			OverlayScrollbars(document.querySelectorAll('#nav_list_box'), {
+				className       : "os-theme-thin-light",
+				resize          : "none",
+				sizeAutoCapable : true,
+				scrollbars : {
+					clickScrolling : true
+				}
+			});
+			var verticalInfo = document.querySelector('.user_info');
+			var verticalLogo = document.querySelector('.bux_logo_vertical');
+			var HorizonLogo = document.querySelector('.bux_logo_horizon');
+			verticalInfo.classList.add('static');
+			verticalLogo.classList.add('static');
+			HorizonLogo.classList.add('hide');
+		});
+		
+		// This function is for when navigation icon clicks
+		function navActive(){
+			$('.nav_scroll').css('display','block');
+			$('nav').css('width','60px');
+			$('.container').addClass('part');
+			$('.container').removeClass('full');
+
+				var verticalInfo = document.querySelector('.user_info');
+				var buxLogo = document.querySelector('.nav_info');
+				var verticalLogo = document.querySelector('.bux_logo_vertical');
+				var HorizonLogo = document.querySelector('.bux_logo_horizon');
+
+				if(buxLogo.classList.contains('active') == true ){
+					verticalInfo.classList.remove('static');
+					verticalLogo.classList.remove('static');
+					HorizonLogo.classList.remove('hide');
+					buxLogo.classList.remove('active');
+					buxLogo.classList.add('inactive');
+
+					setTimeout(function(){
+						$('.nav_user_info').animate({
+							height: '252px',
+							opacity: 1,
+							margin: 0,
+						}, 400)
+						$(".nav_user_info .nav_lin").delay(250).animate({
+							opacity: 1,
+							margin: 0,
+						}, 400)
+						
+						setTimeout(function(){
+							$("nav h3").animate({
+								opacity: 1,
+								margin: 0,
+							}, 400)
+
+							var bookLength = $('.nav_bookmark li').length;
+							var bookHeight = bookLength * 50 + 100;
+
+							$('.nav_bookmark ul li').delay(100).each(function(index){
+								$(this).delay(index*100)
+										.animate({
+											'opacity': '1',
+											'margin-top': '0',
+										}, 250)
+							});
+
+							$(".btn_nav_add_bookmark").delay(100).animate({
+								opacity: 1,
+								'margin-top': 0,
+							}, 400)
+							
+							$(".nav_lin").delay(400).animate({
+								opacity: 1,
+								margin: 0,
+							}, 500)
+
+						}, 100);
+
+						setTimeout(function(){
+							$(".nav_list > li").each(function(index){
+								$(this).delay(index*100)
+										.animate({
+											'opacity': '1',
+											'margin-top': '0',
+										}, 300)
+							});
+						}, 300);
+					}, 150);
+				}else{
+					// setTimeout(function(){
+					// 	$('.nav_scroll').css('display','none');
+					// }, 550);
+					$('nav').css('width','60px');
+					$('.container').removeClass('part');
+					$('.container').addClass('full');
+					verticalInfo.classList.add('static');
+					buxLogo.classList.remove('inactive');
+					buxLogo.classList.add('active');
+
+					$('.nav_user_info').animate({
+							height: '0',
+							opacity: 0,
+							margin: '-50px',
+						}, 200)
+						$(".nav_user_info .nav_lin").delay(150).animate({
+							opacity: 0,
+						}, 300)
+						
+						setTimeout(function(){
+							$("nav h3").animate({
+								opacity: 0,
+								'margin-top': '-30px',
+							}, 200)
+
+							var bookLength = $('.nav_bookmark li').length;
+							var bookHeight = bookLength * 50 + 100;
+
+							$(".nav_lin").animate({
+								opacity: 0,
+							}, 200)
+
+							$('.nav_bookmark ul li').each(function(index){
+								$(this).delay(index*20)
+										.animate({
+											'opacity': '0',
+											'margin-top': '-30px',
+										}, 200)
+							});
+
+							$(".btn_nav_add_bookmark").animate({
+								opacity: 0,
+								'margin-top': '-30px',
+							}, 200)
+							
+							$(".nav_list > li").each(function(index){
+								$(this).animate({
+									'opacity': '0',
+									'margin-top': '-20px',
+								}, 150)
+							});
+						}, 100);		
+				}
+		};
+	</script>
+</head>
+<body>
+<div class="wrap">	
+	<section class="wrap_layout">
+		<nav>
+			<div class="nav_info active" onclick="navActive()">
+				<div class="ico_menu">
+					<span class="nav_ico">
+						<span class="lin_top"></span>
+						<span class="lin_middle"></span>
+						<span class="lin_bottom"></span>
+					</span>
+					<h1 class="bux_logo_vertical">BUX Project</h1>
+					<h1 class="bux_logo_horizon"><span>BUX Project</span></h1>
+				</div>
+				<div class="user_info">
+					<span class="user_pic">user picture</span>
+					<p class="user_txt">
+						<span class="user_id">Rosa Kim</span>
+						<span class="user_mail">kim@nexr.com</span>
+					</p>
+				</div>
+			</div>
+			<div class="nav_scroll">
+				<!-- navigation list box -->
+				<div class="nav_list_box" id="nav_list_box">
+					<div class="nav_user_info">
+						<span class="nav_user_pic">user picture</span>
+						<p class="nav_user_txt">
+							<span class="nav_user_id">Rosa Kim</span>
+							<span class="nav_user_mail">kim@nexr.com</span>
+						</p>
+						<span class="nav_lin"></span>
+					</div>
+					<div class="nav_bookmark">
+						<h3>Bookmark</h3>
+						<ul>
+							<li>
+								<a href="#">
+									<i class="icon-ic_leftmenu_star_on"></i>
+									<span>Main Menu5</span>
+									<span class="book_sub">SubMenu 1</span>
+								</a>
+							</li>
+							<li class="active">
+								<a href="#">
+									<i class="icon-ic_leftmenu_star_on"></i>
+									<span>Main Menu6</span>
+									<span class="book_sub">SubMenu 1</span>
+								</a>
+							</li>
+							<li class="disable">
+								<a href="#">
+									<i class="icon-ic_leftmenu_star_on"></i>
+									<span>Main Menu6</span>
+									<span class="book_sub">SubMenu 1</span>
+								</a>
+							</li>
+						</ul>
+						<button class="line_btn btn_nav_add_bookmark">
+							<i class="ico_plus"></i>
+							Add Bookmark
+						</button>
+						<span class="nav_lin"></span>
+					</div>
+					<ul class="nav_list">
+						<li>
+							<a href="#">Dashboard</a>
+						</li>
+						<li class="active">
+							<a href="#">
+								Data Visualization
+								<i class="icon-ic_leftmenu_arrow_up nav_down"></i>
+							</a>
+							<div class="nav_sub_depth">
+								<ul>
+									<li><a href="#">Dashboard Management</a></li>
+									<li><a href="#">Panel Management</a></li>
+									<li><a href="#">Data Source Management</a></li>
+									<li><a href="#">ACL Management</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="#">
+								Data Engineering
+								<i class="icon-ic_leftmenu_arrow_up nav_down"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								Data Hub
+								<i class="icon-ic_leftmenu_arrow_up nav_down"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="icon-ic_leftmenu_arrow_up nav_down"></i>
+								Data Analytics
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="icon-ic_leftmenu_arrow_up nav_down"></i>
+								Data Governance
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="icon-ic_leftmenu_arrow_up nav_down"></i>
+								Gateway
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="icon-ic_leftmenu_arrow_up nav_down"></i>
+								Solution Commons
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+		</nav>
+		<div class="container">
+			<div class="content"></div>
+		</div>
+	</section>
+	<!-- background image group box -->
+	<!-- up box -->
+	<div class="bg_box">
+		<div class="bg_up">
+			<div class="bg_effect_1">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					viewBox="0 0 500 500" height="325" xml:space="preserve">
+					<path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M325,0c-23.553,48.184-82.975,142.628-206.341,210
+					c-93.263,50.932-91.196,69.936-77.184,136.918C53.889,406.252,48.585,486.066,0,500C0,414.684,0,0,0,0S239.389,0,325,0z"/>
+				</svg>
+			</div>
+			<div class="bg_effect_2">
+				<svg version="1.1" viewBox="0 0 240 500" height="500" enable-background="new 0 0 240 425" xml:space="preserve">
+					<path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M240,0c-1.531,27.712-10.611,78.059-67.412,121.96
+					c-84.076,64.982-136.123,85.976-122.11,152.958C63.634,337.807,57.147,418.491,0,425C0,310.95,0,0,0,0S185.382,0,240,0z"/>
+				</svg>
+				
+			</div>
+		</div>
+		<!-- down box -->
+		<div class="bg_down">
+			<svg version="1.1" x="0px" y="0px" viewBox="0 528 662 553.563">
+				<defs>
+					<linearGradient id="nav_down_grad" x1="0%" y1="0%" x2="0%" y2="100%">
+						<stop offset="0%" style="stop-color: rgba(251,143,135,1);" />
+						<stop offset="100%" style="stop-color: rgba(255,182,133,1);" />
+					</linearGradient>
+				</defs>
+				<path d="M0,526.438V1080c0,0,198.671,0,224.676,0c61.011,0,113.021-29.308,113.021-101c0-111.481-17.153-244,196.037-244c109.762,0,128.024-51.306,128.024-208c0-0.187,0-0.375,0-0.563H0z"/ fill="url(#nav_down_grad)">
+			</svg>
+		</div>
+	</div>
+</div>
+</body>
+
+
+<script>
+// second depth show, hide accordian effect
+
+$('.nav_list > li > a').click(function(){
+
+	$(this).parent().siblings().removeClass('active');
+	$(this).parent().addClass('active');
+
+	var subLength = $('.nav_sub_depth li').length;
+	var subHeight = subLength*50;
+
+	if($(this).parent().hasClass('active') == true ){
+
+		$(this).siblings('.nav_sub_depth').slideDown(400, function(){
+			$(this).animate({
+				height: subHeight,
+				opacity: 1,
+			}, 500);
+		});
+
+		$(this).children('i').removeClass('icon-ic_leftmenu_arrow_up').addClass('icon-ic_leftmenu_arrow_down');
+
+	}else{
+		alert();
+	}
+	
+});
+</script>
