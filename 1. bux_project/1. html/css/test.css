@@ -1,7 +1,16 @@
 @charset "utf-8";
 
+/* -----------------------------------------------------------
+	   파일정의: common.css
+	   내용: 공통으로 사용되는 레이아웃 CSS
+       작성일: 2019-05-13
+       주의사항: CSS 수정시 주석으로 누가, 언제 수정했는지 추가 부탁드립니다.
+       분류순서: Layout > Navigation > Background Image > Dashboard
+--------------------------------------------------------------*/
 
-/* layout */
+
+/* ////////////// ---------------------------- ////////////// */
+/* Layout */
 .wrap{
 	width: 100%;
 	height: 100%;
@@ -13,8 +22,8 @@
     height: 100%;
 }
 
-/* ////////////// ----- ////////////// */
-/* navigation */
+/* ////////////// ---------------------------- ////////////// */
+/* Navigation */
 nav{
 	display:block;
 	width:60px;
@@ -22,7 +31,7 @@ nav{
 	float:left;
 }
 
-/* navigation left bar - nav info */
+/* Navigation left bar - nav info */
 .nav_info{
 	position: absolute;
     left: 0;
@@ -34,7 +43,7 @@ nav{
 	height:100%;
 }
 
-/* navigation left bar - hamburger icon */
+/* Navigation left bar - hamburger icon */
 .nav_ico{
     position: relative;
     display: block;
@@ -187,7 +196,7 @@ nav{
 	}
 }
 
-/* navigation left bar - user information (default style) */
+/* Navigation left bar - user information (default style) */
 .user_info{
 	position:absolute;
 	bottom: 40px;
@@ -240,7 +249,7 @@ nav{
 	background-color: rgba(255,255,255,0.7);
 }
 
-/* navigation scroll box - user information (inner nav style) */
+/* Navigation scroll box - user information (inner nav style) */
 .nav_user_info{
 	position: relative;
 	display:block;
@@ -287,7 +296,7 @@ nav{
 	color:rgba(255,255,255,0.7);
 }
 
-/* navigation scroll box */
+/* Navigation scroll box */
 .nav_scroll{
 	display:none;
 	position: relative;
@@ -297,28 +306,6 @@ nav{
 	margin-left: 60px;
 	box-sizing: border-box;
 }
-/* .nav_scroll:before{
-	content: "";
-	position:absolute;
-	left:0;
-	top:0;
-	bottom:249px;
-	z-index:0;
-    width: 315px;
-    height: auto;
-    background: url(../img/ing_test_shadow_top.png) repeat-y right 0;
-}
-.nav_scroll:after{
-	content: "";
-	position:absolute;
-	left:0;
-	bottom:0;
-	z-index:0;
-	width:315px;
-	height:255px;
-	background: url(../img/ing_test_shadow.png) no-repeat -7px 0px;
-    background-size: contain;
-} */
 .nav_list_box{
 	position: absolute;
 	z-index: 3;
@@ -330,8 +317,7 @@ nav{
 	padding-right:60px;
 }
 
-
-/* navigation scroll box - bookmark */
+/* Navigation scroll box - bookmark */
 nav h3{
 	font-size:18px;
 	color:#fff;
@@ -388,7 +374,7 @@ nav li a{
 	margin-right:5px;
 }
 
-/* line btn style */
+/* Line btn style */
 .line_btn{
 	display:block;
 	width:75%;
@@ -408,8 +394,7 @@ nav li a{
 	margin-right:4px;
 }
 
-/* navigation scroll box - list (1depth) */
-
+/* Navigation scroll box - list (1depth) */
 .nav_list > li{
 	display:block;
 	opacity:0;
@@ -447,7 +432,7 @@ nav li a{
 	display:block;
 }
 
-/* navigation scroll box - list (2depth) */
+/* Navigation scroll box - list (2depth) */
 .nav_sub_depth{
     height: 0;
 	opacity: 0;
@@ -488,13 +473,12 @@ nav li a{
 	opacity:0.3;
 }
 
-
-/* bg */
+/* ////////////// ---------------------------- ////////////// */
+/* Background Image */
 .bg_box{
 	width:100%;
 	height: 100%;;
 }
-/* navigation background - up box */
 .bg_up{
     width: 660px;
     height: calc(100% - 550px);
@@ -526,8 +510,6 @@ nav li a{
 	width:100%;
 	float:left;
 }
-
-/* navigation background - down box */
 .bg_down{
 	width: 660px;
     height: 550px;
@@ -543,12 +525,8 @@ nav li a{
 	box-shadow: 10px 10px 10px 10px rgba(0,0,0,1);
 }
 
-
-
-
-
-/* ////////////// ----- ////////////// */
-/* container */
+/* ////////////// ---------------------------- ////////////// */
+/* Container */
 .container{
 	display:block;
 	width: calc(100% - 60px);
